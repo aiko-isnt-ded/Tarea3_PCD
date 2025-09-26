@@ -89,7 +89,7 @@ def update_user(user_id: int, user:User, db: Session = Depends(get_db), api_key:
     user_model.user_name = user.user_name
     user_model.user_email = user.user_email
     user_model.age = user.age
-    user_model.recommendations = user.recommendations
+    user_model.recommendations = json.dumps(user.recommendations)
     user_model.zip = user.zip
 
     db.add(user_model)
